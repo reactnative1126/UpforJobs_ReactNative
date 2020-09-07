@@ -42,7 +42,7 @@ class Linkedin extends Component {
         <StatusBar hidden />
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
-        <TouchableOpacity style={{ position: 'absolute', top: 57, left: 37, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity style={{ position: 'absolute', top: Platform.OS == 'ios' ? 57 : 27, left: Platform.OS == 'ios' ? 37 : 27, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
           <Icon name="arrow-left" type="feather" size={25} color={colors.WHITE} />
         </TouchableOpacity>
         <View style={styles.main}>
@@ -58,7 +58,7 @@ class Linkedin extends Component {
             </View>
           </View>
 
-          <View style={{ marginTop: 60, width: wp('90%') }}>
+          <View style={{ marginTop: Platform.OS == 'ios' ? 60 : 40, width: wp('90%') }}>
             <Text>
               <Text style={styles.upforjobText}>UP FOR JOBS </Text>
               <Text style={styles.wouldText}>would like to</Text>
@@ -75,7 +75,7 @@ class Linkedin extends Component {
               <View style={{ width: 17 }} />
               <Text style={styles.normalText}>{"with your linkedin account"}</Text>
             </View>
-            <Text style={{ marginTop: 30 }}>
+            <Text style={{ marginTop: Platform.OS == 'ios' ? 30 : 20 }}>
               <Text style={styles.normalText}>{"You can stop this sync in your Linkedin\nsettings. "}</Text>
               <Text style={{ fontSize: 17, fontWeight: 'bold', color: colors.WHITE }}>UP FOR JOBS </Text>
               <Text style={styles.normalText}>{"terms apply. "}</Text>
@@ -84,7 +84,7 @@ class Linkedin extends Component {
 
           <AthenaRadio
             checked={this.state.check4}
-            marginTop={60}
+            marginTop={Platform.OS == 'ios' ? 60 : 30}
             width={wp('90%')}
             checkSize={20}
             checkColor={this.state.check4 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   main: {
-    marginTop: 150,
+    marginTop: Platform.OS == 'ios' ? 150 : 100,
     alignItems: 'center',
     width: wp('100%'),
     height: hp('100%')

@@ -30,7 +30,7 @@ const AthenaInput = (props) => {
           autoCapitalize={isEmpty(props.autoCapitalize) ? 'none' : props.autoCapitalize}
           keyboardType={isEmpty(props.keyboardType) ? 'default' : props.keyboardType}
           secureTextEntry={isEmpty(props.secureTextEntry) ? false : true}
-          inputContainerStyle={{ marginTop: 10, width: '100%', borderBottomWidth: 0 }}
+          inputContainerStyle={{ marginTop: Platform.OS == 'ios' ? 10 : 20, width: '100%', borderBottomWidth: 0 }}
           inputStyle={{
             textAlign: 'center',
             fontSize: isEmpty(props.fontSize) ? 14 : props.fontSize,

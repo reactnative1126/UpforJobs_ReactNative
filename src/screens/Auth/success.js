@@ -36,7 +36,7 @@ class Success extends Component {
             this.props.route.params.user_type == 2 && (
               <View style={{alignItems: 'center'}}>
                 <AthenaButton
-                  marginTop={45}
+                  marginTop={Platform.OS == 'ios' ? 45 : 35}
                   width={235}
                   height={53}
                   radius={27}
@@ -68,13 +68,13 @@ const styles = StyleSheet.create({
     height: hp('100%')
   },
   successText: {
-    marginTop: 38,
+    marginTop: Platform.OS == 'ios' ? 38 : 28,
     fontSize: 48,
     fontWeight: 'bold',
     color: colors.GREEN.PRIMARY
   },
   descriptionText: {
-    marginTop: 38,
+    marginTop: Platform.OS == 'ios' ? 38 : 28,
     fontSize: 17,
     fontWeight: '300',
     color: colors.GREEN.PRIMARY,

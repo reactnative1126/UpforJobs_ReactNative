@@ -42,7 +42,7 @@ class Step1 extends Component {
         <StatusBar hidden />
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
-        <TouchableOpacity style={{ position: 'absolute', top: 57, left: 37, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity style={{ position: 'absolute', top: Platform.OS == 'ios' ? 57 : 27, left: Platform.OS == 'ios' ? 37 : 27, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
           <Icon name="arrow-left" type="feather" size={25} color={colors.WHITE} />
         </TouchableOpacity>
         <ScrollView contentContainerStyle={styles.main}>
@@ -100,7 +100,7 @@ class Step1 extends Component {
             }}
           />
           <AthenaButton
-            marginTop={48}
+            marginTop={Platform.OS == 'ios' ? 48 : 18}
             width={300}
             height={50}
             radius={25}
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   main: {
-    marginTop: 150,
+    marginTop: Platform.OS == 'ios' ? 150 : 80,
     alignItems: 'center',
     width: wp('100%'),
     height: hp('100%')
@@ -144,7 +144,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: colors.WHITE,
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: 50
   },
   email: {
     marginTop: 10,
@@ -155,15 +156,15 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   orText: {
-    marginTop: 31,
-    marginBottom: 23,
+    marginTop: Platform == 'ios' ? 31 : 11,
+    marginBottom: Platform == 'ios' ? 23 : 13,
     fontSize: 17,
     fontWeight: '300',
     color: colors.WHITE,
     textAlign: 'center'
   },
   bottomText: {
-    marginTop: 50,
+    marginTop: Platform == 'ios' ? 50 : 20,
     fontSize: 17,
     fontWeight: '300',
     color: colors.WHITE,

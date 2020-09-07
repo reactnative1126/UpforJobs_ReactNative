@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { Icon } from "react-native-elements";
@@ -42,10 +42,10 @@ class SignIn extends Component {
         <StatusBar hidden />
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
-        <TouchableOpacity style={{ position: 'absolute', top: 57, left: 37 }} onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity style={{ position: 'absolute', top: Platform.OS == 'ios' ? 57 : 27, left: Platform.OS == 'ios' ? 37 : 27 }} onPress={() => this.props.navigation.goBack()}>
           <Icon name="arrow-left" type="feather" size={25} color={colors.WHITE} />
         </TouchableOpacity>
-        <View style={styles.main}>
+        <View  style={styles.main}>
           <Text style={styles.title}>{"Welcome Back!\nPlease Log In!"}</Text>
           <Text style={styles.commonText}>with</Text>
           <View style={styles.socialView}>
@@ -60,7 +60,7 @@ class SignIn extends Component {
             </TouchableOpacity>
           </View>
           <AthenaInput
-            marginTop={30}
+            marginTop={Platform.OS == 'ios' ? 30 : 30}
             width={300}
             height={50}
             radius={25}
@@ -79,7 +79,7 @@ class SignIn extends Component {
             }}
           />
           <AthenaInput
-            marginTop={30}
+            marginTop={Platform.OS == 'ios' ? 30: 10}
             width={300}
             height={50}
             radius={25}
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   main: {
-    marginTop: 100,
+    marginTop: Platform.OS == 'ios' ? 100 : 80,
     alignItems: 'center',
     width: wp('100%'),
     height: hp('100%')
@@ -158,16 +158,17 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 'bold',
     color: colors.WHITE,
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: 50
   },
   commonText: {
-    marginTop: 7,
+    marginTop: Platform.OS == 'ios' ? 7 : 0,
     fontSize: 17,
     fontWeight: '300',
     color: colors.WHITE
   },
   socialView: {
-    marginTop: 16,
+    marginTop: Platform.OS == 'ios' ? 16 : 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: 200,

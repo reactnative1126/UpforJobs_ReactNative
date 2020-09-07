@@ -27,7 +27,7 @@ class Splash extends Component {
         <StatusBar hidden />
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
-        <View style={styles.main}>
+        <TouchableOpacity style={styles.main}  onPress={() => this.props.navigation.navigate('Start')}>
           <View style={styles.logoContent}>
             <View style={styles.logoView}>
               <Image source={images.logo} style={{ marginTop: 10 }} />
@@ -41,11 +41,11 @@ class Splash extends Component {
             <Text style={[styles.titleText, { fontSize: 46 }]}>J</Text>
             <Text style={[styles.titleText, { fontSize: 41, marginTop: 5 }]}>OBS</Text>
           </View>
-          <TouchableOpacity style={styles.upArrowIcon} onPress={() => this.props.navigation.navigate('Start')}>
+          <View style={styles.upArrowIcon}>
             <Icon name="chevron-up" type="entypo" size={50} color={colors.GREEN.PRIMARY} />
-          </TouchableOpacity>
+          </View>
           <Text style={styles.descriptionText}>Doing Good by Doing Good</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

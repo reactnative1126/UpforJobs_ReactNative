@@ -13,7 +13,7 @@ import i18n from "@utils/i18n";
 
 const AthenaButton = (props) => {
   return (
-    <TouchableOpacity style={[styles.button, {
+    <TouchableOpacity style={[styles.button, !isEmpty(props.backgroundColor) && styles.shadow, {
       marginTop: isEmpty(props.marginTop) ? 0 : props.marginTop,
       width: isEmpty(props.width) ? '80%' : props.width,
       height: isEmpty(props.height) ? 50 : props.height,
@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  shadow: {
     shadowColor: colors.BLACK,
     shadowOffset: {
       width: 1, height: 1

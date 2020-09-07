@@ -39,13 +39,13 @@ class Step2 extends Component {
         <StatusBar hidden />
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
-        <TouchableOpacity style={{ position: 'absolute', top: 57, left: 37, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity style={{ position: 'absolute', top: Platform.OS == 'ios' ? 57 : 27, left: Platform.OS == 'ios' ? 37 : 27, zIndex: 1000 }} onPress={() => this.props.navigation.goBack()}>
           <Icon name="arrow-left" type="feather" size={25} color={colors.WHITE} />
         </TouchableOpacity>
         <ScrollView contentContainerStyle={styles.main}>
           <Text style={styles.title}>{"Create Your\npassword"}</Text>
           <AthenaInput
-            marginTop={40}
+            marginTop={Platform.OS == 'ios' ? 40 : 20}
             width={300}
             height={50}
             radius={25}
@@ -65,7 +65,7 @@ class Step2 extends Component {
           />
           <AthenaRadio
             checked={this.state.check1}
-            marginTop={26}
+            marginTop={Platform.OS == 'ios' ? 26: 16}
             width={310}
             checkSize={20}
             checkColor={this.state.check1 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -76,7 +76,7 @@ class Step2 extends Component {
           />
           <AthenaRadio
             checked={this.state.check2}
-            marginTop={15}
+            marginTop={Platform.OS == 'ios' ? 15 : 10}
             width={310}
             checkSize={20}
             checkColor={this.state.check2 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -87,7 +87,7 @@ class Step2 extends Component {
           />
           <AthenaRadio
             checked={this.state.check3}
-            marginTop={15}
+            marginTop={Platform.OS == 'ios' ? 15 : 10}
             width={310}
             checkSize={20}
             checkColor={this.state.check3 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -98,7 +98,7 @@ class Step2 extends Component {
           />
           <AthenaRadio
             checked={this.state.check4}
-            marginTop={60}
+            marginTop={Platform.OS == 'ios' ? 60 : 40}
             width={310}
             checkSize={20}
             checkColor={this.state.check4 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -109,7 +109,7 @@ class Step2 extends Component {
           />
           <AthenaRadio
             checked={this.state.check5}
-            marginTop={15}
+            marginTop={Platform.OS == 'ios' ? 15: 10}
             width={310}
             checkSize={20}
             checkColor={this.state.check5 ? colors.GREEN.SECONDARY : colors.WHITE}
@@ -123,7 +123,7 @@ class Step2 extends Component {
             onPress={() => this.setState({ check5: !this.state.check5 })}
           />
           <AthenaButton
-            marginTop={48}
+            marginTop={Platform.OS == 'ios' ? 48 : 38}
             width={300}
             height={50}
             radius={25}
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   main: {
-    marginTop: 150,
+    marginTop: Platform.ios == 'ios' ? 150 : 100,
     alignItems: 'center',
     width: wp('100%'),
     height: hp('100%')
@@ -154,32 +154,9 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 'bold',
     color: colors.WHITE,
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: 50
   },
-  email: {
-    marginTop: 10,
-    marginBottom: 17,
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.GREEN.PRIMARY,
-    textAlign: 'center'
-  },
-  orText: {
-    marginTop: 31,
-    marginBottom: 23,
-    fontSize: 17,
-    fontWeight: '300',
-    color: colors.WHITE,
-    textAlign: 'center'
-  },
-  bottomText: {
-    marginTop: 50,
-    fontSize: 17,
-    fontWeight: '300',
-    color: colors.WHITE,
-    textAlign: 'center'
-  }
-
 });
 
 export default connect(undefined, undefined)(Step2);

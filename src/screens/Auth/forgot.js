@@ -39,7 +39,7 @@ class Forgot extends Component {
         <Loading loading={this.state.loading} />
         <Background background={images.background} />
         <View style={styles.main}>
-          <TouchableOpacity style={{ position: 'absolute', top: 57, left: 37 }} onPress={() => this.props.navigation.goBack()}>
+          <TouchableOpacity style={{ position: 'absolute', top: Platform.OS == 'ios' ? 57 : 27, left: Platform.OS == 'ios' ? 37 : 27 }} onPress={() => this.props.navigation.goBack()}>
             <Icon name="arrow-left" type="feather" size={25} color={colors.WHITE} />
           </TouchableOpacity>
           <View style={styles.topView}>
@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 'bold',
     color: colors.WHITE,
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: 50
   },
   bottomView: {
     position: 'absolute',

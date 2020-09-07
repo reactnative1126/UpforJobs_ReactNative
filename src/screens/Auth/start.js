@@ -81,7 +81,7 @@ class Start extends Component {
               width={95}
               height={32}
               radius={16}
-              borderWidth={1}
+              borderWidth={2}
               borderColor={colors.GREEN.PRIMARY}
               title="Log In"
               fontSize={16}
